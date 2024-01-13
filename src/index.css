@@ -1,0 +1,37 @@
+.cdx-button_link-input {
+    margin-bottom: 10px;
+}
+
+.cdx-button_tune-wrapper {
+    display: flex;
+    gap: 4px;
+    margin: 5px 0;
+}
+
+.cdx-button_tune-button {
+    flex-grow: 1;
+    padding: 4px;
+    box-sizing: content-box;
+}
+
+.cdx-button_tune-button.cdx-settings-button--active {
+    border: 2px solid;
+}
+
+.cdx-button_tune-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+}
+
+.cdx-button_tune-button_green .cdx-button_tune-icon {
+    background-color: #2E7D32;
+}
+
+.cdx-button_tune-button_blue .cdx-button_tune-icon {
+    background-color: #0d6efd;
+}
+
+.cdx-button_tune-button_yellow .cdx-button_tune-icon {
+    background-color: #ddac18;
+}
