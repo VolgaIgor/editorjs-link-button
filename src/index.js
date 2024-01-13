@@ -97,7 +97,7 @@ export default class LinkButton {
      */
     render() {
         const wrapper = document.createElement('div');
-        wrapper.classList.add(this.CSS.blockWrapper);
+        wrapper.classList.add(this.api.styles.block, this.CSS.blockWrapper);
 
         const linkInput = document.createElement('input');
         linkInput.placeholder = this.api.i18n.t('Link');
