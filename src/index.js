@@ -29,9 +29,9 @@ export default class LinkButton {
                 title: 'Blue',
             },
             {
-                name: 'yellow',
+                name: 'red',
                 icon: '<div class="cdx-button_tune-icon"></div>',
-                title: 'Yellow',
+                title: 'Red',
             },
         ];
     }
