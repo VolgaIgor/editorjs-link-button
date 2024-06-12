@@ -1,16 +1,16 @@
 {
   "name": "editorjs-link-button",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "main": "./dist/bundle.js",
   "license": "MIT",
   "keywords": [
-    "anchor",
+    "link",
     "editor.js",
     "editorjs"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/VolgaIgor/editorjs-link-button"
+    "url": "git+https://github.com/VolgaIgor/editorjs-link-button.git"
   },
   "scripts": {
     "build": "webpack --mode production",
@@ -30,7 +30,6 @@
     "url": "https://github.com/VolgaIgor/editorjs-link-button/issues"
   },
   "homepage": "https://github.com/VolgaIgor/editorjs-link-button#readme",
-  "dependencies": {},
-  "author": "VolgaIgor <shuvalovii@yandex.ru>",
+  "author": "Igor Shuvalov «VolgaIgor»",
   "description": "Link Button block tune for Editor.js"
 }

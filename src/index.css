@@ -1,37 +1,32 @@
-.cdx-button_link-input {
+.cdx-lbtn_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.cdx-lbtn_l-input {
     margin-bottom: 10px;
 }
 
-.cdx-button_tune-wrapper {
-    display: flex;
-    gap: 4px;
+.cdx-lbtn_tune-wrapper {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 2px;
     margin: 5px 0;
 }
 
-.cdx-button_tune-button {
-    flex-grow: 1;
+.cdx-lbtn_tune-btn {
     padding: 4px;
     box-sizing: content-box;
 }
 
-.cdx-button_tune-button.cdx-settings-button--active {
+.cdx-lbtn_tune-btn.cdx-settings-button--active {
     border: 2px solid;
+    padding: 2px;
 }
 
-.cdx-button_tune-icon {
+.cdx-lbtn_tune-color {
     width: 100%;
     height: 100%;
     border-radius: 3px;
-}
-
-.cdx-button_tune-button_green .cdx-button_tune-icon {
-    background-color: #2E7D32;
-}
-
-.cdx-button_tune-button_blue .cdx-button_tune-icon {
-    background-color: #0d6efd;
-}
-
-.cdx-button_tune-button_red .cdx-button_tune-icon {
-    background-color: #E44844;
 }

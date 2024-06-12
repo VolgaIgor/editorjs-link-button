@@ -1,6 +1,7 @@
 import './index.css';
 
 import toolboxIcon from './svg/toolbox.svg';
+import linkIcon from './svg/link.svg';
 
 export default class LinkButton {
 
@@ -20,17 +21,17 @@ export default class LinkButton {
         return [
             {
                 name: 'green',
-                icon: '<div class="cdx-button_tune-icon"></div>',
+                icon: '<div class="cdx-lbtn_tune-color" style="background-color:#2E7D32;"></div>',
                 title: 'Green',
             },
             {
                 name: 'blue',
-                icon: '<div class="cdx-button_tune-icon"></div>',
+                icon: '<div class="cdx-lbtn_tune-color" style="background-color:#0d6efd;"></div>',
                 title: 'Blue',
             },
             {
                 name: 'red',
-                icon: '<div class="cdx-button_tune-icon"></div>',
+                icon: '<div class="cdx-lbtn_tune-color" style="background-color:#E44844;"></div>',
                 title: 'Red',
             },
         ];
@@ -43,11 +44,11 @@ export default class LinkButton {
      */
     get CSS() {
         return {
-            linkInput: 'cdx-button_link-input',
-            captionInput: 'cdx-button_caption-input',
-            blockWrapper: 'cdx-button_block-wrapper',
-            tuneWrapper: 'cdx-button_tune-wrapper',
-            tuneButton: 'cdx-button_tune-button'
+            linkInput: 'cdx-lbtn_l-input',
+            captionInput: 'cdx-lbtn_c-input',
+            blockWrapper: 'cdx-lbtn_wrapper',
+            tuneWrapper: 'cdx-lbtn_tune-wrapper',
+            tuneButton: 'cdx-lbtn_tune-btn'
         };
     };
 
@@ -100,17 +101,25 @@ export default class LinkButton {
         wrapper.classList.add(this.api.styles.block, this.CSS.blockWrapper);
 
         const linkInput = document.createElement('input');
-        linkInput.placeholder = this.api.i18n.t('Link');
+        linkInput.placeholder = this.api.i18n.t('Enter a link');
         linkInput.classList.add(this.api.styles.input, this.CSS.linkInput);
         linkInput.value = this.data.url;
 
         const captionInput = document.createElement('input');
-        captionInput.placeholder = this.api.i18n.t('Caption');
+        captionInput.placeholder = this.api.i18n.t('Enter a caption');
         captionInput.classList.add(this.api.styles.input, this.CSS.captionInput);
         captionInput.value = this.data.caption;
 
-        wrapper.appendChild(linkInput);
-        wrapper.appendChild(captionInput);
+        const svgWrapper = document.createElement('div');
+        svgWrapper.innerHTML = linkIcon;
+
+        const inputWrapper = document.createElement('div');
+        inputWrapper.style.width = '100%';
+        inputWrapper.appendChild(linkInput);
+        inputWrapper.appendChild(captionInput);
+
+        wrapper.appendChild(svgWrapper);
+        wrapper.appendChild(inputWrapper);
 
         this.nodes.linkInput = linkInput;
         this.nodes.captionInput = captionInput;
@@ -119,13 +128,18 @@ export default class LinkButton {
     }
 
     renderSettings() {
+        const tunes = this.config.colors ?? LinkButton.tunes ?? [];
+        if (tunes.length === 0) {
+            return wrapper;
+        }
+
         const wrapper = document.createElement('div');
         wrapper.classList.add(this.CSS.tuneWrapper);
 
-        LinkButton.tunes.forEach(tune => {
+        tunes.forEach(tune => {
             let button = document.createElement('div');
 
-            button.classList.add(this.api.styles.settingsButton, this.CSS.tuneButton, this.CSS.tuneButton + '_' + tune.name);
+            button.classList.add(this.api.styles.settingsButton, this.CSS.tuneButton);
             button.classList.toggle(this.api.styles.settingsButtonActive, this.data.color === tune.name);
             button.innerHTML = tune.icon;
             button.dataset.tune = tune.name;
